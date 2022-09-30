@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include <numeric>
+#include <cstdint>
 
 namespace hacki {
     struct MathTest {
