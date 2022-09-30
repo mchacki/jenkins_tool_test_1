@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.23)
 
 project(Jenkins_Test_Tool)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 
