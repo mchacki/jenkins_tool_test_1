@@ -15,7 +15,9 @@ pipeline {
         stage('Build') {
             steps {
                 checkout scm
-                withCredentials([gitUsernamePassword(credentialsId: 'demo', gitToolName: 'git-tool')]) {
+                withCredentials([gitUsernamePassword(credentialsId: 'demo', gitToolName: 'git-tool',  usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                sh 'echo $USERNAME'
+                sh 'echo $PASSWORD'
                     sh 'git submodule update --init --recursive'
                 }
                 cmake arguments: '', installation: 'InSearchPath'
