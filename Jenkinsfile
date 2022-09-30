@@ -15,7 +15,7 @@ pipeline {
         stage('Build') {
             steps {
                 checkout scm
-                withCredentials([sshUserPrivateKey(credentialsId: 'github-user', keyFileVariable: 'SSH_KEY')]) {
+                withCredentials([sshUserPrivateKey(credentialsId: 'gihtub-user', keyFileVariable: 'SSH_KEY')]) {
                     sh 'GIT_SSH_COMMAND="ssh -i $SSH_KEY" git submodule update --init --recursive'
                 }
                 cmake arguments: '', installation: 'InSearchPath'
