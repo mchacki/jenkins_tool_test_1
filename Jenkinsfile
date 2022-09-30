@@ -16,6 +16,7 @@ pipeline {
             steps {
                 checkout scm
                 withCredentials([sshUserPrivateKey(credentialsId: 'gihtub-user', keyFileVariable: 'SSH_KEY')]) {
+                    sh 'echo $SSH_KEY'
                     sh 'GIT_SSH_COMMAND="ssh -i $SSH_KEY" git submodule update --init --recursive'
                 }
                 cmake arguments: '', installation: 'InSearchPath'
