@@ -14,12 +14,10 @@ pipeline {
 	stages {
         stage('Build') {
             steps {
-                checkout scm
-                withCredentials([gitUsernamePassword(credentialsId: 'demo', gitToolName: 'git-tool',  usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                sh 'echo $USERNAME'
-                sh 'echo $PASSWORD'
-                    sh 'git submodule update --init --recursive'
+                withCredentials([gitUsernamePassword(credentialsId: 'demo', gitToolName: 'Default')]) {
+                   sh 'git submodule update --init --recursive'
                 }
+
                 cmake arguments: '', installation: 'InSearchPath'
                 cmakeBuild buildType: 'Debug', cleanBuild: true, installation: 'InSearchPath', steps: [[withCmake: true]]
             }
