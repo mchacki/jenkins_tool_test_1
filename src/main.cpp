@@ -2,7 +2,7 @@
 // Created by Michael Hackstein on 30.09.22.
 //
 
-#include "MathTest.h"
+#include "lib/MathTest.h"
 
 #include <iostream>
 

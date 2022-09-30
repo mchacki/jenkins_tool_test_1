@@ -14,11 +14,9 @@ pipeline {
 	stages {
         stage('Build') {
             steps {
-                withCredentials([gitUsernamePassword(credentialsId: 'demo', gitToolName: 'Default')]) {
-                   sh 'git submodule update --init --recursive'
+                sshagent(['githubuser']) {
+                  sh 'git submodule update --init --recursive'
                 }
-
-                cmake arguments: '', installation: 'InSearchPath'
                 cmakeBuild buildType: 'Debug', cleanBuild: true, installation: 'InSearchPath', steps: [[withCmake: true]]
             }
         }
