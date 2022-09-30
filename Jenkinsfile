@@ -14,6 +14,7 @@ pipeline {
 	stages {
         stage('Build') {
             steps {
+                sh label: 'submodules', returnStatus: true, script: 'git submodule update --init'
                 cmake arguments: '', installation: 'InSearchPath'
                 cmakeBuild buildType: 'Debug', cleanBuild: true, installation: 'InSearchPath', steps: [[withCmake: true]]
             }
