@@ -1,2 +1,2 @@
 *:*CMakeFiles\*
-*:*3rdParty\*
+*:*3rdParty/*
