@@ -1,4 +1,4 @@
-enable_testing()
+include(GoogleTest)
 
 add_executable(
         mchacki_test
@@ -10,5 +10,4 @@ target_link_libraries(
         GTest::gtest_main
 )
 
-include(GoogleTest)
 gtest_discover_tests(mchacki_test)
