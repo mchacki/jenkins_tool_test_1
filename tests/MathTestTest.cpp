@@ -22,10 +22,12 @@ namespace hacki {
             EXPECT_FALSE(testee.isDivisible(5));
         }
 
+#ifdef USE_RED_TEST
         TEST_F(MainTestTest, failing_test) {
             MathTest testee{2};
             EXPECT_TRUE(testee.isDivisible(3));
             EXPECT_TRUE(testee.isDivisible(5));
         }
+#endif
     }
 }
